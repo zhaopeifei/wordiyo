@@ -1,0 +1,89 @@
+Linux is subversive. Who would have thought, even five years ago, that a world-class operating system could coalesce as if by magic out of part-time hacking by several thousand developers scattered all over the planet, connected only by the tenuous strands of the Internet?
+
+<Trans lang="zh">Linux 是颠覆性的。五年前，谁能想到一个世界级的操作系统可以从散布在全球各地、仅靠互联网脆弱连接的数千名开发者的业余编程中，如同魔法般凝聚而成？</Trans>
+
+Certainly not I. By the time Linux swam onto my radar screen in early 1993, I had already been involved in Unix and open-source development for ten years. I was one of the first GNU contributors in the mid-1980s. I had released a good deal of open-source software onto the net. And I thought I knew how it was done.
+
+<Trans lang="zh">至少我没想到。1993 年初 Linux 进入我的视野时，我已经参与 Unix 和开源开发十年了。我是 1980 年代中期最早的 GNU 贡献者之一。我在网上发布了大量开源软件。我以为自己知道该怎么做。</Trans>
+
+## Two Models of Software Development
+
+I believed that the most important software needed to be built like cathedrals, carefully crafted by individual wizards or small bands of mages working in splendid isolation, with no beta to be released before its time.
+
+<Trans lang="zh">我曾相信，最重要的软件需要像建造大教堂那样来打造——由个别天才或小型精英团队在华丽的隔绝中精心雕琢，时机不到绝不发布测试版。</Trans>
+
+Linus Torvalds's style of development — release early and often, delegate everything you can, be open to the point of promiscuity — came as a surprise. No quiet, reverent cathedral-building here. Rather, the Linux community seemed to resemble a great babbling bazaar of differing agendas and approaches, out of which a coherent and stable system could seemingly emerge only by a succession of miracles.
+
+<Trans lang="zh">Linus Torvalds 的开发方式——早发布、勤发布、尽可能委派、开放到近乎不设防——让我大吃一惊。这里没有安静虔诚的教堂建造。相反，Linux 社区更像一个嘈杂喧闹的大集市，充斥着各种不同的目标和方法，似乎只有经历一连串奇迹才能从中涌现出一个连贯而稳定的系统。</Trans>
+
+The fact that this bazaar style seemed to work, and work well, came as a distinct shock. As I learned my way around, I worked hard not just at individual projects, but also at trying to understand why the Linux world not only didn't fly apart in confusion but seemed to go from strength to strength at a speed barely imaginable to cathedral-builders.
+
+<Trans lang="zh">而这种集市风格居然行得通，而且效果很好——这着实令人震惊。随着我逐渐深入了解，我不仅努力参与具体项目，还试图理解为什么 Linux 世界不仅没有在混乱中分崩离析，反而以大教堂建造者难以想象的速度不断壮大。</Trans>
+
+## The Mail Must Get Through
+
+I began my serious testing of the bazaar theory with a project called fetchmail. I needed a POP3 mail client. What I found on the net wasn't quite what I wanted. But I didn't just sit down and start designing a new one from scratch. Instead, I considered which of the existing tools came closest, and I decided to build on one of them — a program called "popclient."
+
+<Trans lang="zh">我用一个叫 fetchmail 的项目开始认真检验集市理论。我需要一个 POP3 邮件客户端。网上找到的都不太理想。但我没有从头开始设计一个新的。相反，我评估了哪个现有工具最接近需求，然后决定在其中一个——一个叫 "popclient" 的程序——的基础上开发。</Trans>
+
+The first important lesson: **Every good work of software starts by scratching a developer's personal itch.** Perhaps this should have been obvious, but too often software developers spend their days grinding away for pay at programs they neither need nor love. But not in the Linux world.
+
+<Trans lang="zh">第一条重要经验：**每个好的软件项目都始于开发者自己的痛点。** 也许这本该显而易见，但太多软件开发者每天为了薪水在自己既不需要也不热爱的程序上消磨时光。Linux 世界不是这样。</Trans>
+
+Another lesson: **Good programmers know what to write. Great ones know what to rewrite (and reuse).** I was not trying to be original. I was trying to be effective. The most efficient way to get somewhere is often not to build a road, but to find one that already goes in the right direction.
+
+<Trans lang="zh">另一条经验：**优秀的程序员知道该写什么。伟大的程序员知道该改写（和复用）什么。** 我不是要追求原创。我是要追求实效。到达目的地最高效的方式，往往不是修一条路，而是找到一条已经通往正确方向的路。</Trans>
+
+## Linus's Law
+
+I think the crucial turning point was when I realized that by treating my users as co-developers, I was getting rapid feedback on my code that was almost as good as having many collaborators working in parallel.
+
+<Trans lang="zh">我认为关键转折点在于我意识到：当我把用户当作共同开发者来对待时，我得到了几乎等同于众多协作者并行工作的快速代码反馈。</Trans>
+
+Linus was directly aiming to maximize the number of person-hours thrown at debugging and development, even at the possible cost of instability and of the codebase becoming a mess. Linus was behaving as though he believed something like this:
+
+<Trans lang="zh">Linus 的做法直接指向最大化投入调试和开发的人时数，即使可能以不稳定和代码混乱为代价。Linus 的行事方式仿佛他相信这样一个道理：</Trans>
+
+**Given enough eyeballs, all bugs are shallow.** I call this "Linus's Law." More formally: Given a large enough beta-tester and co-developer base, almost every problem will be characterized quickly and the fix obvious to someone.
+
+<Trans lang="zh">**只要有足够多的眼睛，所有的 bug 都是浅显的。** 我称之为"Linus 定律"。更正式地说：只要有足够大的测试者和共同开发者群体，几乎每个问题都会很快被定性，而修复方案对某个人来说也是显而易见的。</Trans>
+
+The difference in perspective is illuminating. In the cathedral-builder view of programming, bugs and development problems are tricky, insidious, deep phenomena. It takes months of scrutiny by a dedicated few to develop confidence that you've worked them all out. In the bazaar view, you assume that bugs are generally shallow — or at least, that they turn shallow pretty quickly when exposed to a thousand eager co-developers.
+
+<Trans lang="zh">两种视角的差异发人深省。在大教堂式的编程观中，bug 和开发问题是棘手、隐蔽、深层的现象。需要少数专注的人花数月仔细审查，才能确信全部解决了。在集市观中，你假设 bug 通常是浅显的——至少，当暴露在一千个热切的共同开发者面前时，它们会很快变得浅显。</Trans>
+
+## Lessons from the Bazaar
+
+Over the course of developing fetchmail, I distilled many lessons. Here are several that resonate far beyond software:
+
+<Trans lang="zh">在开发 fetchmail 的过程中，我提炼出了许多经验。以下几条的意义远超软件本身：</Trans>
+
+**Release early. Release often. And listen to your customers.** The bazaar model demands short release cycles. The more rapidly you release, the more quickly users can spot problems, and the more effectively you can iterate.
+
+<Trans lang="zh">**早发布。勤发布。倾听用户。** 集市模式要求短发布周期。发布越频繁，用户越快发现问题，你的迭代就越高效。</Trans>
+
+**If you treat your beta-testers as if they're your most valuable resource, they will respond by becoming your most valuable resource.** People want to contribute. They want to feel that their feedback matters. Give them that, and they will surprise you with the quality of their contributions.
+
+<Trans lang="zh">**如果你把测试者当作最宝贵的资源，他们就会成为你最宝贵的资源。** 人们渴望贡献。他们希望自己的反馈有意义。给他们这种感觉，他们回馈的质量会让你惊讶。</Trans>
+
+**To solve an interesting problem, start by finding a problem that is interesting to you.** Motivation matters enormously. The best work comes from people who genuinely care about the problem, not from people who are merely competent.
+
+<Trans lang="zh">**要解决有趣的问题，先找一个你自己觉得有趣的问题。** 动力至关重要。最好的工作来自真正关心这个问题的人，而不仅仅是有能力的人。</Trans>
+
+**Perfection in design is achieved not when there is nothing more to add, but when there is nothing more to take away.** When your code is getting both better and simpler, that is when you know it's right. And in the process, the design will evolve into something more elegant than any single mind could have planned.
+
+<Trans lang="zh">**设计的完美不是无可添加，而是无可删减。** 当你的代码既在变好又在变简单时，你就知道方向对了。在这个过程中，设计会进化成比任何单个头脑所能规划的更优雅的东西。</Trans>
+
+## Beyond Software
+
+The cathedral and the bazaar are not just two ways to build software. They are two ways of thinking about any creative or collaborative endeavor. The cathedral says: plan everything, control everything, trust only the experts. The bazaar says: start with something, share it widely, let the crowd find the problems and contribute the solutions.
+
+<Trans lang="zh">大教堂与集市不仅仅是两种构建软件的方式。它们是思考任何创造性或协作性事业的两种方式。大教堂说：规划一切、控制一切、只信任专家。集市说：先做出点什么、广泛分享、让众人发现问题并贡献解决方案。</Trans>
+
+The lesson of the bazaar is perhaps the most radical of all: that when you give up some control, the result can be better than anything you'd have achieved alone.
+
+<Trans lang="zh">集市的启示也许是最激进的：当你放弃一些控制权时，结果可能比你独自完成的任何东西都要好。</Trans>
+
+> *Based on the essay by Eric S. Raymond, first presented at the Linux Kongress in 1997. Excerpted and adapted for educational purposes.*
+
+<Trans lang="zh">*基于 Eric S. Raymond 的文章，首次发表于 1997 年 Linux Kongress 大会。此处为学习用途的节选改编。*</Trans>
